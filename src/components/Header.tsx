@@ -1,6 +1,8 @@
 import NavBar from "@/components/NavBar";
 import AppInstallButton from "./AppInstallButton";
 import { useNavigate } from "react-router-dom";
+import saerokLogo from "@/assets/icons/logo.svg?url";
+import saerokTypo from "@/assets/icons/typo.svg?url";
 
 interface HeaderProps {
   scale?: number;
@@ -31,8 +33,8 @@ const Header = ({ scale = 1 }: HeaderProps) => {
           }}
           onClick={handleClickLogo}
         >
-          <img src="src/assets/icons/logo.svg" alt="saerok-logo" />
-          <img src="src/assets/icons/typo.svg" alt="saerok-typo" />
+          <img src={saerokLogo} alt="saerok-logo" />
+          <img src={saerokTypo} alt="saerok-typo" />
         </div>
         <AppInstallButton scale={scale} />
       </div>
