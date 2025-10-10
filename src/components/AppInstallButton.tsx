@@ -1,3 +1,6 @@
+import logoWhite from "@/assets/icons/app-logo-white.svg?url";
+import logo from "@/assets/icons/app-logo.svg?url";
+
 interface AppInstallButtonProps {
   scale?: number;
   isFooter?: boolean;
@@ -14,11 +17,7 @@ const AppInstallButton = ({
       }}
     >
       <img
-        src={`${
-          isFooter
-            ? "src/assets/icons/app-logo-white.svg"
-            : "src/assets/icons/app-logo.svg"
-        }`}
+        src={`${isFooter ? { logoWhite } : { logo }}`}
         alt="saerok-app-logo"
         style={{ height: `${22 * scale}px`, width: `${22 * scale}px` }}
       />
