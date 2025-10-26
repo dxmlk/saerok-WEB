@@ -15,47 +15,52 @@ const SaerokListCard = ({ scale = 1, item }: SaerokListCardProps) => {
   const navigate = useNavigate();
   const wrapRef = useRef<HTMLDivElement | null>(null);
   const innerRef = useRef<HTMLDivElement | null>(null);
+  const frontRef = useRef<HTMLDivElement | null>(null);
+  const backRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
-    if (!wrapRef.current || !innerRef.current) return;
-
-    const wrap = wrapRef.current as HTMLDivElement;
-    const inner = innerRef.current as HTMLDivElement;
+    if (
+      !wrapRef.current ||
+      !innerRef.current ||
+      !frontRef.current ||
+      !backRef.current
+    )
+      return;
 
     const ctx = gsap.context(() => {
-      gsap.set(wrap, { perspective: 1000 });
-      gsap.set(inner, {
-        transformStyle: "preserve-3d",
-        rotateY: 0,
-        willChange: "transform",
+      gsap.set(innerRef.current!, {
+        willChange: "opacity, transform",
+        scale: 1,
       });
-
-      wrap.querySelectorAll<HTMLElement>(".face").forEach((el) => {
-        gsap.set(el, { backfaceVisibility: "hidden" });
-      });
-
-      const front = wrap.querySelector<HTMLElement>(".face.front");
-      if (front) gsap.set(front, { z: 0.1 });
-
-      const back = wrap.querySelector<HTMLElement>(".face.back");
-      if (back) gsap.set(back, { rotateY: 180 });
-    }, wrap);
+      gsap.set(frontRef.current!, { opcaity: 1 });
+      gsap.set(backRef.current!, { opacity: 0 });
+    }, wrapRef);
 
     return () => ctx.revert();
   }, []);
 
+  const DURATION = 0.45;
+  const EASE = "power2.out";
+
   const handleEnter = () => {
-    const el = innerRef.current;
-    if (!el) return;
-    gsap.to(el, { rotateY: 180, duration: 0.5, ease: "power2.out" });
+    if (!frontRef.current || !backRef.current) return;
+    gsap.to(frontRef.current, { opacity: 0, duration: DURATION, ease: EASE });
+    gsap.to(backRef.current, { opacity: 1, duration: DURATION, ease: EASE });
+    // if (innerRef.current)
+    //   gsap.to(innerRef.current, {
+    //     scale: 1.02,
+    //     duration: DURATION,
+    //     ease: EASE,
+    //   });
   };
 
   const handleLeave = () => {
-    const el = innerRef.current;
-    if (!el) return;
-    gsap.to(el, { rotateY: 0, duration: 0.5, ease: "power2.out" });
+    if (!frontRef.current || !backRef.current) return;
+    gsap.to(frontRef.current, { opacity: 1, duration: DURATION, ease: EASE });
+    gsap.to(backRef.current, { opacity: 0, duration: DURATION, ease: EASE });
+    // if (innerRef.current)
+    //   gsap.to(innerRef.current, { scale: 1, duration: DURATION, ease: EASE });
   };
-
   const handleClick = () => {
     navigate(`/saerok/detail`);
   };
@@ -83,6 +88,7 @@ const SaerokListCard = ({ scale = 1, item }: SaerokListCardProps) => {
       <div ref={innerRef} className="absolute inset-0">
         {/* 앞면 */}
         <div
+          ref={frontRef}
           className="face front absolute inset-0 overflow-hidden"
           style={{
             borderRadius: `${20 * scale}px`,
@@ -98,6 +104,7 @@ const SaerokListCard = ({ scale = 1, item }: SaerokListCardProps) => {
         </div>
         {/* 뒷면 */}
         <div
+          ref={backRef}
           className="face back absolute inset-0 overflow-hidden"
           style={{
             borderRadius: `${20 * scale}px`,
