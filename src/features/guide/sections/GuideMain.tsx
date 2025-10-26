@@ -10,7 +10,7 @@ interface GuideMainProps {
 const GuideMain = ({ scale = 1 }: GuideMainProps) => {
   return (
     <div
-      className="flex flex-row w-full h-full"
+      className="grid grid-cols-3 w-full h-full"
       style={{
         paddingLeft: `${120 * scale}px`,
         paddingRight: `${120 * scale}px`,

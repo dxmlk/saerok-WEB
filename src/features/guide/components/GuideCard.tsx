@@ -42,17 +42,15 @@ const GuideCard = ({ imgSrc, children, moveTo, scale = 1 }: GuideCardProps) => {
   return (
     <div
       ref={cardRef}
-      className="relative border-none flex-shrink-0 cursor-pointer"
+      className="w-full aspect-[367/592] relative border-none flex-shrink-0 cursor-pointer"
       style={{
-        borderRadius: `${30 * scale}pxx`,
-        width: `${367 * scale}px`,
-        height: `${592 * scale}px`,
+        borderRadius: `${30 * scale}px`,
       }}
       onMouseEnter={handleEnter}
       onMouseLeave={handleLeave}
       onClick={handleClick}
     >
-      <img src={imgSrc} className="inset-0 object-cover" />
+      <img src={imgSrc} className="inset-0 w-full h-full object-cover" />
       <div
         className="absolute left-1/2 -translate-x-[50%]"
         style={{
