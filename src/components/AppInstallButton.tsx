@@ -17,7 +17,7 @@ const AppInstallButton = ({
       }}
     >
       <img
-        src={`${isFooter ? { logoWhite } : { logo }}`}
+        src={isFooter ? logoWhite : logo}
         alt="saerok-app-logo"
         style={{ height: `${22 * scale}px`, width: `${22 * scale}px` }}
       />
