@@ -1,3 +1,5 @@
+import { ReactComponent as MainSvg } from "@/assets/images/main.svg";
+
 interface MainSectionProps {
   isMobile?: boolean;
   scale?: number;
@@ -11,8 +13,7 @@ const MainSection = ({ isMobile, scale = 1 }: MainSectionProps) => {
         height: `${1138 * scale}px`,
       }}
     >
-      <img src="/src/assets/images/main.svg" />
-      <></>
+      <MainSvg />
     </main>
   );
 };
