@@ -6,6 +6,7 @@ import RollingText from "../components/RollingText";
 import RoundButton from "@/components/RoundButton";
 import SaerokCarousel from "../components/SaerokCarousel";
 import REGION from "@/constants/region";
+import { scaledStyle } from "@/utils/scaleStyle";
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 
@@ -30,11 +31,11 @@ const SaerokPreview = ({ scale = 1 }: SaerokPreivewProps) => {
     >
       <header
         className="px-120 text-mainBlue font-400 tracking-[-4px]"
-        style={{
-          fontSize: `${50 * scale}px`,
-          lineHeight: `${50 * scale}px`,
-          paddingTop: `${107 * scale}px`,
-        }}
+        style={scaledStyle(scale, {
+          fontSize: 50,
+          lineHeight: 50,
+          paddingTop: 107,
+        })}
       >
         <div className="flex flex-row items-center">
           <span>요즘 [</span>
@@ -51,19 +52,19 @@ const SaerokPreview = ({ scale = 1 }: SaerokPreivewProps) => {
 
       <div
         className="px-120 mt-65 mb-25"
-        style={{
-          marginTop: `${65 * scale}px`,
-          marginBottom: `${25 * scale}px`,
-        }}
+        style={scaledStyle(scale, {
+          marginTop: 65,
+          marginBottom: 25,
+        })}
       >
         <RoundButton text="새록 더 보러가기" moveTo="explore" scale={scale} />
       </div>
 
       <div
         className="mb-87"
-        style={{
-          marginBottom: `${87 * scale}px`,
-        }}
+        style={scaledStyle(scale, {
+          marginBottom: 87,
+        })}
       >
         <SaerokCarousel scale={scale} />
       </div>

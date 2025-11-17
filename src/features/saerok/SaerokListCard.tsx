@@ -5,6 +5,7 @@ import NicknameBadge from "./NicknameBadge";
 import { ReactComponent as LocationIcon } from "@/assets/icons/location.svg";
 import { ReactComponent as DateIcon } from "@/assets/icons/date.svg";
 import { useNavigate } from "react-router-dom";
+import { scaledStyle } from "@/utils/scaleStyle";
 
 interface SaerokListCardProps {
   scale?: number;
@@ -69,10 +70,10 @@ const SaerokListCard = ({ scale = 1, item }: SaerokListCardProps) => {
     <div
       ref={wrapRef}
       className="group relative w-full h-auto overflow-visible break-inside-avoid z-20"
-      style={{
-        borderRadius: `${20 * scale}px`,
-        marginBottom: `${20 * scale}px`,
-      }}
+      style={scaledStyle(scale, {
+        borderRadius: 20,
+        marginBottom: 20,
+      })}
       onMouseEnter={handleEnter}
       onMouseLeave={handleLeave}
       onClick={handleClick}
@@ -90,9 +91,9 @@ const SaerokListCard = ({ scale = 1, item }: SaerokListCardProps) => {
         <div
           ref={frontRef}
           className="face front absolute inset-0 overflow-hidden"
-          style={{
-            borderRadius: `${20 * scale}px`,
-          }}
+          style={scaledStyle(scale, {
+            borderRadius: 20,
+          })}
         >
           <img
             src={item.imageUrl}
@@ -106,9 +107,9 @@ const SaerokListCard = ({ scale = 1, item }: SaerokListCardProps) => {
         <div
           ref={backRef}
           className="face back absolute inset-0 overflow-hidden"
-          style={{
-            borderRadius: `${20 * scale}px`,
-          }}
+          style={scaledStyle(scale, {
+            borderRadius: 20,
+          })}
         >
           <img
             src={item.imageUrl}
@@ -120,27 +121,27 @@ const SaerokListCard = ({ scale = 1, item }: SaerokListCardProps) => {
           <div className="absolute inset-0 bg-blackLayer z-20" />
           <div
             className="absolute z-20 flex flex-col font-400 text-background-lightWhitegray"
-            style={{
-              paddingLeft: `${17 * scale}px`,
-              paddingRight: `${17 * scale}px`,
-              bottom: `${21.5 * scale}px`,
-              gap: `${5 * scale}px`,
-              fontSize: `${21 * scale}px`,
-              lineHeight: `${24 * scale}px`,
-            }}
+            style={scaledStyle(scale, {
+              paddingLeft: 17,
+              paddingRight: 17,
+              bottom: 21.5,
+              gap: 5,
+              fontSize: 21,
+              lineHeight: 24,
+            })}
           >
             <div
               className="flex flex-row items-start justify-start "
-              style={{
-                gap: `${15 * scale}px`,
-              }}
+              style={scaledStyle(scale, {
+                gap: 15,
+              })}
             >
-              <LocationIcon style={{ width: `${24 * scale}px` }} />
+              <LocationIcon style={scaledStyle(scale, { width: 24 })} />
               <div
                 className="flex flex-col justify-start"
-                style={{
-                  gap: `${2 * scale}px`,
-                }}
+                style={scaledStyle(scale, {
+                  gap: 2,
+                })}
               >
                 {/* 이거 아직 제대로 못함 truncate 설정 */}
                 <span className="truncate w-full block">
@@ -148,9 +149,9 @@ const SaerokListCard = ({ scale = 1, item }: SaerokListCardProps) => {
                 </span>
                 <span
                   className="truncate w-full block text-font-gray"
-                  style={{
-                    fontSize: `${17 * scale}px`,
-                  }}
+                  style={scaledStyle(scale, {
+                    fontSize: 17,
+                  })}
                 >
                   {item.address}
                 </span>
@@ -158,16 +159,12 @@ const SaerokListCard = ({ scale = 1, item }: SaerokListCardProps) => {
             </div>
             <div
               className="flex flex-row items-start justify-start"
-              style={{
-                gap: `${15 * scale}px`,
-              }}
+              style={scaledStyle(scale, { gap: 15 })}
             >
-              <DateIcon style={{ width: `${24 * scale}px` }} />
+              <DateIcon style={scaledStyle(scale, { width: 24 })} />
               <div
                 className="flex flex-col justify-start"
-                style={{
-                  gap: `${2 * scale}px`,
-                }}
+                style={scaledStyle(scale, { gap: 2 })}
               >
                 {/* date 표시 형식 정리 필요 */}
                 <span className="truncate">{item.discoveredDate}</span>

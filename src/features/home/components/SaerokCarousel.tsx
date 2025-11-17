@@ -3,6 +3,7 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 import SaerokCarouselCard from "./SaerokCarouselCard";
+import { scaledStyle } from "@/utils/scaleStyle";
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 
@@ -170,15 +171,15 @@ const SaerokCarousel = ({ scale = 1 }: SaerokCarouselProps) => {
     <div
       ref={trackRef}
       className="slides-track w-full bg-background-white flex flex-row overflow-visible touch-pan-y overscroll-contain select-none gap-20"
-      style={{
-        height: `${495 * scale}px`,
-        paddingTop: `${20 * scale}px`,
-        paddingBottom: `${20 * scale}px`,
-      }}
+      style={scaledStyle(scale, {
+        height: 495,
+        paddingTop: 20,
+        paddingBottom: 20,
+      })}
     >
       <div
         className="h-full shrink-0 m-0 p-0 slide"
-        style={{ width: `${120 * scale}px` }}
+        style={scaledStyle(scale, { width: 120 })}
       />
       <SaerokCarouselCard scale={scale} />
       <SaerokCarouselCard scale={scale} />

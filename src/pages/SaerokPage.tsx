@@ -1,10 +1,10 @@
 import IntroSection from "@/components/IntroSection";
 import SaerokTail from "@/features/saerok/SaerokTail";
 import SaerokList from "@/features/saerok/SaerokList";
+import { useDesignScaleValue } from "@/design/DesignScaleContext";
 
 const ExplorePage = () => {
-  const DESIGN_HEIGHT = 925;
-  const scale = window.innerHeight / DESIGN_HEIGHT;
+  const scale = useDesignScaleValue();
 
   return (
     <div className=" bg-background-white ">

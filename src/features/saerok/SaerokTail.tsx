@@ -1,4 +1,5 @@
 import qrCode from "@/assets/images/qr-code.png";
+import { scaledStyle } from "@/utils/scaleStyle";
 
 interface ExploreTailProps {
   scale?: number;
@@ -8,28 +9,28 @@ const ExploreTail = ({ scale = 1 }: ExploreTailProps) => {
   return (
     <div
       className="flex flex-col items-center justify-center"
-      style={{
-        marginTop: `${183 * scale}px`,
-        marginBottom: `${191 * scale}px`,
-      }}
+      style={scaledStyle(scale, {
+        marginTop: 183,
+        marginBottom: 191,
+      })}
     >
       <span
         className="text-mainBlue font-400"
-        style={{
-          fontSize: `${50 * scale}px`,
-          lineHeight: `${50 * scale}px`,
-          letterSpacing: `${-4 * scale}px`,
-          marginBottom: `${37 * scale}px`,
-        }}
+        style={scaledStyle(scale, {
+          fontSize: 50,
+          lineHeight: 50,
+          letterSpacing: -4,
+          marginBottom: 37,
+        })}
       >
         새록과 함께하세요
       </span>
       <img
         src={qrCode}
         alt="QR Code"
-        style={{
-          marginBottom: `${9 * scale}px`,
-        }}
+        style={scaledStyle(scale, {
+          marginBottom: 9,
+        })}
       />
       <img
         src="src/assets/images/appstore.png"

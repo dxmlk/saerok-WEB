@@ -2,6 +2,7 @@ import { useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { gsap } from "gsap";
 import guideButton from "@/assets/icons/guide-button.svg?url";
+import { scaledStyle } from "@/utils/scaleStyle";
 
 interface GuideCardProps {
   imgSrc?: string;
@@ -43,9 +44,9 @@ const GuideCard = ({ imgSrc, children, moveTo, scale = 1 }: GuideCardProps) => {
     <div
       ref={cardRef}
       className="w-full aspect-[367/592] relative border-none flex-shrink-0 cursor-pointer"
-      style={{
-        borderRadius: `${30 * scale}px`,
-      }}
+      style={scaledStyle(scale, {
+        borderRadius: 30,
+      })}
       onMouseEnter={handleEnter}
       onMouseLeave={handleLeave}
       onClick={handleClick}
@@ -53,21 +54,21 @@ const GuideCard = ({ imgSrc, children, moveTo, scale = 1 }: GuideCardProps) => {
       <img src={imgSrc} className="inset-0 w-full h-full object-cover" />
       <div
         className="absolute left-1/2 -translate-x-[50%]"
-        style={{
-          top: `${32 * scale}px`,
-        }}
+        style={scaledStyle(scale, {
+          top: 32,
+        })}
       >
         {children}
       </div>
       <button
         onClick={handleClick}
         className="absolute"
-        style={{
-          bottom: `${15 * scale}px`,
-          right: `${16 * scale}px`,
-          height: `${59 * scale}px`,
-          width: `${59 * scale}px`,
-        }}
+        style={scaledStyle(scale, {
+          bottom: 15,
+          right: 16,
+          height: 59,
+          width: 59,
+        })}
       >
         <img src={guideButton} alt="Button" className="w-full h-full" />
       </button>

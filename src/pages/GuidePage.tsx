@@ -1,9 +1,9 @@
 import IntroSection from "@/components/IntroSection";
+import { useDesignScaleValue } from "@/design/DesignScaleContext";
 import GuideMain from "@/features/guide/sections/GuideMain";
 
 const GuidePage = () => {
-  const DESIGN_HEIGHT = 925;
-  const scale = window.innerHeight / DESIGN_HEIGHT;
+  const scale = useDesignScaleValue();
 
   return (
     <div className="bg-background-lightWhitegray ">

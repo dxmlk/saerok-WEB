@@ -1,4 +1,5 @@
 import type { User } from "@/features/saerok/CollectionType";
+import { scaledStyle } from "@/utils/scaleStyle";
 
 interface NicknameBadgeProps {
   user: User;
@@ -9,32 +10,32 @@ const NicknameBadge = ({ user, scale = 1 }: NicknameBadgeProps) => {
   return (
     <div
       className="absolute glassmorphism flex flex-row items-center"
-      style={{
-        top: `${10 * scale}px`,
-        right: `${10 * scale}px`,
-        borderRadius: `${20 * scale}px`,
-        paddingLeft: `${10 * scale}px`,
-        paddingRight: `${12 * scale}px`,
-        paddingTop: `${7 * scale}px`,
-        paddingBottom: `${7 * scale}px`,
-        gap: `${7 * scale}px`,
-      }}
+      style={scaledStyle(scale, {
+        top: 10,
+        right: 10,
+        borderRadius: 20,
+        paddingLeft: 10,
+        paddingRight: 12,
+        paddingTop: 7,
+        paddingBottom: 7,
+        gap: 7,
+      })}
     >
       <img
         src={user.profileImageUrl}
         alt="Profile Image"
         className="rounded-full border-1 border-background-lightWhitegray object-cover"
-        style={{
-          height: `${25 * scale}px`,
-          width: `${25 * scale}px`,
-        }}
+        style={scaledStyle(scale, {
+          height: 25,
+          width: 25,
+        })}
       />
       <span
         className="font-400 text-font-black"
-        style={{
-          fontSize: `${15 * scale}px`,
-          lineHeight: `${20 * scale}px`,
-        }}
+        style={scaledStyle(scale, {
+          fontSize: 15,
+          lineHeight: 20,
+        })}
       >
         {user.nickname}
       </span>

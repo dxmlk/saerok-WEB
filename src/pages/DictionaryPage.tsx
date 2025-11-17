@@ -1,10 +1,10 @@
 import GlassBall from "@/components/GlassBall";
 
 import background from "@/assets/images/background.jpg";
+import { useDesignScaleValue } from "@/design/DesignScaleContext";
 
 const DictionaryPage = () => {
-  const DESIGN_HEIGHT = 925;
-  const scale = window.innerHeight / DESIGN_HEIGHT;
+  const scale = useDesignScaleValue();
 
   return (
     <div className="relative h-full w-full">

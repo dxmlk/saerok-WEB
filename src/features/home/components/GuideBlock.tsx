@@ -1,6 +1,7 @@
 import { useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { gsap } from "gsap";
+import { scaledStyle } from "@/utils/scaleStyle";
 
 interface GuideBlockProps {
   imgSrc?: string;
@@ -64,29 +65,29 @@ const GuideBlock = ({
         src={imgSrc}
         alt="etiquette"
         className="w-105 h-105 border-none rounded-20"
-        style={{
-          width: `${105 * scale}px`,
-          height: `${105 * scale}px`,
-          borderRadius: `${20 * scale}px`,
-        }}
+        style={scaledStyle(scale, {
+          width: 105,
+          height: 105,
+          borderRadius: 20,
+        })}
       />
       <div
         className="flex flex-col items-start gap-4"
-        style={{ gap: `${4 * scale}px` }}
+        style={scaledStyle(scale, { gap: 4 })}
       >
         <span
           className="font-700 text-black text-30"
-          style={{ fontSize: `${30 * scale}px` }}
+          style={scaledStyle(scale, { fontSize: 30 })}
         >
           {title}
         </span>
         <span
           className="font-400 text-font-darkGray text-20 "
-          style={{
-            fontSize: `${20 * scale}px`,
-            lineHeight: `${25 * scale}px`,
-            letterSpacing: `${-1 * scale}px`,
-          }}
+          style={scaledStyle(scale, {
+            fontSize: 20,
+            lineHeight: 25,
+            letterSpacing: -1,
+          })}
         >
           {description}
         </span>
