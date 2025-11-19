@@ -23,6 +23,7 @@ type ScaledProps = Partial<
     | "width"
     | "height"
     | "letterSpacing"
+    | "borderWidth"
   >
 >;
 
