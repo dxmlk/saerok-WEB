@@ -75,7 +75,7 @@ const GuideCTA = ({ scale = 1 }: GuideCTAProps) => {
           title="탐조 장비"
           description="탐조할 때 들고다닐 장비에는 무엇이 있나요?"
           scale={scale}
-          moveTo="equipment"
+          moveTo="process"
         />
         <GuideBlock
           imgSrc={duckPurple}

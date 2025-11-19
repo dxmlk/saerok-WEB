@@ -3,7 +3,7 @@ import type { CSSProperties } from "react";
 import EtiquetteCard from "../components/EtiquetteCard";
 import EtiquetteDescription from "../components/EtiquetteDescription";
 import { scaledStyle } from "@/utils/scaleStyle";
-import { ETIQUETTE_CARDS } from "@/design/etiquetteCards";
+import { ETIQUETTE_CARDS } from "@/constants/etiquetteCards";
 import CardConnector from "../components/CardConnector";
 
 interface EtiquetteCardsProps {

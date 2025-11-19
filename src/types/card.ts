@@ -7,3 +7,15 @@ export interface CardItem {
   descriptionTop: string;
   descriptionBottom: string;
 }
+
+export interface ProcessCardItem {
+  id: number;
+  title: string;
+  Icon: SvgIcon;
+  iconLocation: string;
+  description: string;
+  startPoint: string;
+  marginValue: number;
+  gapValue: number;
+  marginBottom: number;
+}

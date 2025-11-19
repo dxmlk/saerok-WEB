@@ -36,7 +36,7 @@ const GuideMain = ({ scale = 1 }: GuideMainProps) => {
           </span>
         </div>
       </GuideCard>
-      <GuideCard imgSrc={DuckPinkSrc} scale={scale} moveTo="equipment">
+      <GuideCard imgSrc={DuckPinkSrc} scale={scale} moveTo="process">
         <div
           className="text-background-white text-center"
           style={scaledStyle(scale, {

@@ -7,7 +7,7 @@ import MainPage from "@/pages/MainPage";
 import SaerokDetailPage from "@/pages/SaerokDetailPage";
 import { createBrowserRouter } from "react-router-dom";
 import EtiquettePage from "@/pages/EtiquettePage";
-import EquipmentPage from "@/pages/EquipmentPage";
+import ProcessPage from "@/pages/ProcessPage";
 import TipsPage from "@/pages/TipsPage";
 
 export const createRouter = () => {
@@ -21,7 +21,7 @@ export const createRouter = () => {
         { path: "saerok/detail/:id", element: <SaerokDetailPage /> },
         { path: "guide", element: <GuidePage /> },
         { path: "guide/etiquette", element: <EtiquettePage /> },
-        { path: "guide/equipment", element: <EquipmentPage /> },
+        { path: "guide/process", element: <ProcessPage /> },
         { path: "guide/tips", element: <TipsPage /> },
         { path: "dictionary", element: <DictionaryPage /> },
         { path: "about", element: <AboutPage /> },

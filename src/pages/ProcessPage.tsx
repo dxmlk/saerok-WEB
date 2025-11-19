@@ -1,8 +1,8 @@
 import IntroSection from "@/components/IntroSection";
 import { useDesignScaleValue } from "@/design/DesignScaleContext";
-import TipsContent from "@/features/guide/sections/TipsContent";
+import ProcessContent from "@/features/guide/sections/ProcessContent";
 
-const TipsPage = () => {
+const ProcessPage = () => {
   const scale = useDesignScaleValue();
   return (
     <div className="bg-background-lightWhitegray ">
@@ -13,9 +13,9 @@ const TipsPage = () => {
         isGuide={true}
         scale={scale}
       />
-      <TipsContent scale={scale} />
+      <ProcessContent scale={scale} />
     </div>
   );
 };
 
-export default TipsPage;
+export default ProcessPage;
