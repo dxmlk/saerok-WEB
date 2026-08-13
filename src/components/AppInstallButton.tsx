@@ -1,5 +1,6 @@
 import logoWhite from "@/assets/icons/app-logo-white.svg?url";
 import logo from "@/assets/icons/app-logo.svg?url";
+import { getStoreUrlForDevice } from "@/utils/storeLinks";
 
 interface AppInstallButtonProps {
   scale?: number;
@@ -9,6 +10,8 @@ const AppInstallButton = ({
   scale = 1,
   isFooter = false,
 }: AppInstallButtonProps) => {
+  const storeUrl = getStoreUrlForDevice();
+
   return (
     <div
       className="flex flex-row items-center gap-7"
@@ -22,7 +25,7 @@ const AppInstallButton = ({
         style={{ height: `${22 * scale}px`, width: `${22 * scale}px` }}
       />
       <a
-        href="https://apps.apple.com/kr/app/%EC%83%88%EB%A1%9D-%EC%9D%BC%EC%83%81-%EC%86%8D%EC%9D%98-%ED%83%90%EC%A1%B0-%EC%9D%BC%EC%A7%80/id6744866662"
+        href={storeUrl}
         className={`text-body-1 ${
           isFooter ? "font-400 text-background-white" : "font-700 text-mainBlue"
         } `}

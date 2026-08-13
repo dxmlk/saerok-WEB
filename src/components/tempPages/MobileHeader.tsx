@@ -1,6 +1,6 @@
 import saerokLogo from "@/assets/icons/logo.svg?url";
 import saerokTypo from "@/assets/icons/typo.svg?url";
-import AppInstallButton from "../AppInstallButton";
+import { getStoreUrlForDevice } from "@/utils/storeLinks";
 
 interface MobileHeaderProps {
   scale?: number;
@@ -11,6 +11,8 @@ const MobileHeader = ({
   scale = 1,
   disableNavigation = true,
 }: MobileHeaderProps) => {
+  const storeUrl = getStoreUrlForDevice();
+
   const handleClickLogo = () => {
     if (disableNavigation) return;
     // 여기 원래 navigate("/") 있었음
@@ -30,7 +32,7 @@ const MobileHeader = ({
           <img src={saerokTypo} alt="saerok-typo" />
         </div>
         <a
-          href="https://apps.apple.com/kr/app/%EC%83%88%EB%A1%9D-%EC%9D%BC%EC%83%81-%EC%86%8D%EC%9D%98-%ED%83%90%EC%A1%B0-%EC%9D%BC%EC%A7%80/id6744866662"
+          href={storeUrl}
           className={`text-body-1 font-700 text-mainBlue`}
           style={{
             fontSize: `${15 * scale}px`,
